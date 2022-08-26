@@ -6,7 +6,7 @@ public class SalesManager {
     }
 
     public long max() {
-        long max = -1;
+        long max = -1L;
         for (long sale : sales) {
             if (sale > max) {
                 max = sale;
@@ -15,9 +15,9 @@ public class SalesManager {
         return max;
     }
 
-    public int min() {
-        int min = 2_147_483_647;
-        for (int sale : sales) {
+    public long min() {
+        long min = 9_223_372_036_854_775_807L;
+        for (long sale : sales) {
             if (sale < min) {
                 min = sale;
             }
@@ -28,17 +28,17 @@ public class SalesManager {
     public int CalculationAverage() {
         int sum = 0;
         if (sales.length == 0) {
-            return sum;
+            return 0;
         } else if (sales.length < 3) {
-            for (int sale : sales) {
+            for (long sale : sales) {
                 sum += sale;
             }
             return sum / sales.length;
         } else {
-            int min = min();
-            int max = max();
+            long min = min();
+            long max = max();
             int count = 0;
-            for (int sale : sales) {
+            for (long sale : sales) {
                 if (sale != min && sale != max) {
                     sum += sale;
                     count ++;

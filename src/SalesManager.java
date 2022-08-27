@@ -41,8 +41,14 @@ public class SalesManager {
             for (long sale : sales) {
                 if (sale != min && sale != max) {
                     sum += sale;
-                    count ++;
+                } else if (sale == min) {
+                    min = 0;
+                    continue;
+                } else if (sale == max) {
+                    max = 0;
+                    continue;
                 }
+                count++;
             }
             return sum / count;
         }
